@@ -1,18 +1,15 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React from 'react'
+import { useParams } from 'react-router-dom'
+const ItemDetail = () => {
+    let {id}=useParams();
+    // let
+  return (
+    <div>
 
-
-const Item= ()=>{
-
-    const params= useParams();
-    let count= params.itemId;
-
-    return(
-        <div>
-            <h1>Item {count}</h1>
-            <p>Description for Item {count}</p>
-        </div>
-    )
+         <h1>Item {id}</h1>
+      <p>Description for Item {id}</p>
+    </div>
+  )
 }
 
-export default Item
+export default ItemDetail
