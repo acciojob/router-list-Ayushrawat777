@@ -1,44 +1,62 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-const ListPage = () => {
-  return (
-    <div>
-      <h2>List Page</h2>
-      <ul>
-        <li>
-          <Link to="/items/1">Item 1</Link>
-        </li>
-        <li>
-          <Link to="/items/2">Item 2</Link>
-        </li>
-        <li>
-          <Link to="/items/3">Item 3</Link>
-        </li>
-      </ul>
-    </div>
-  );
-};
-
-const ItemDetailsPage = ({ match }) => {
-  const itemId = match.params.itemId;
-
-  return (
-    <div>
-      <h2>Item Details Page</h2>
-      <p>Item ID: {itemId}</p>
-    </div>
-  );
-};
+import React from "react";
+import "./../styles/App.css";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <div>
-        <Route exact path="/" component={ListPage} />
-        <Route path="/items/:itemId" component={ItemDetailsPage} />
+        {/* Do not remove the main div */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div>
+                <h1>Item List</h1>
+                <ul>
+                  <li>
+                    <Link to={"/items/1"}>Item 1</Link>{" "}
+                  </li>
+                  <li>
+                    <Link to={"/items/2"}>Item 2</Link>{" "}
+                  </li>
+                  <li>
+                    <Link to={"/items/3"}>Item 3</Link>{" "}
+                  </li>
+                </ul>
+              </div>
+            }
+          />
+          <Route
+            path="/items/1"
+            element={
+              <div>
+                <h1>Item 1</h1>
+                <p>Description for Item 1</p>
+              </div>
+            }
+          />
+          <Route
+            path="/items/2"
+            element={
+              <div>
+                <h1>Item 2</h1>
+                <p>Description for Item 2</p>
+              </div>
+            }
+          />
+          <Route
+            path="/items/3"
+            element={
+              <div>
+                <h1>Item 3</h1>
+                <p>Description for Item 3</p>
+              </div>
+            }
+          />
+        </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 
