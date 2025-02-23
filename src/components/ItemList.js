@@ -1,17 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-const ItemList= () => {
+
+
+const ItemList = ({items}) => {
   return (
     <div>
       <h1>Item List</h1>
       <ul>
-        <li><Link to='/items/1'>Item 1</Link></li>
-        <li><Link to='/items/2'>Item 2</Link></li>
-        <li><Link to='/items/3'>Item 3</Link></li>
+      {items.map((item) => (
+        <li key={item.id}><Link to={`/items/${item.id}`}>Item {item.id}</Link></li>
+      ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default ItemList
+export default ItemList;
